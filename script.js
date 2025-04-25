@@ -1,33 +1,33 @@
-class Character {
-    constructor(name, icon, description, strengths, abilities, style) {
-        this.name = name;
-        this.icon = icon;
-        this.description = description;
-        this.strengths = strengths;
-        this.abilities = abilities;
-        this.style = style;
-        this.score = 0;
+class Personagem {
+    constructor(nome, icone, descricao, forcas, habilidades, estilo) {
+        this.nome = nome;
+        this.icone = icone;
+        this.descricao = descricao;
+        this.forcas = forcas;
+        this.habilidades = habilidades;
+        this.estilo = estilo;
+        this.pontuacao = 0;
     }
 }
 
-class CharacterQuiz {
+class QuizPersonagem {
     constructor() {
-        this.characters = [
-            new Character(
+        this.personagens = [
+            new Personagem(
                 "Arqueira", "🏹", 
                 "Você é ágil, estratégico e prefere resolver os problemas à distância. Sua precisão e capacidade de observação são admiráveis.",
                 "Velocidade, precisão e visão aguçada",
                 "Ataque à distância, camuflagem, rastreamento",
                 "Prefere evitar confrontos diretos, analisa antes de agir"
             ),
-            new Character(
+            new Personagem(
                 "Mago", "✨", 
                 "Você é sábio, criativo e busca conhecimento. Sua inteligência e habilidade para resolver problemas complexos são seu maior diferencial.",
                 "Inteligência, adaptabilidade e conhecimento arcano",
                 "Feitiços variados, invisibilidade, cura",
                 "Planeja cada movimento, usa a mente antes da força"
             ),
-            new Character(
+            new Personagem(
                 "Guerreiro", "🛡️", 
                 "Você é corajoso, determinado e confiável. Sua lealdade e força física são qualidades que inspiram todos ao seu redor.",
                 "Força física, resistência e coragem",
@@ -36,196 +36,196 @@ class CharacterQuiz {
             )
         ];
         
-        this.questions = [
+        this.perguntas = [
             {
-                text: "Como você prefere resolver conflitos?",
-                options: [
-                    { text: "Observando de longe e intervindo no momento certo", scores: [3, 2, 1] },
-                    { text: "Usando estratégia e palavras para evitar a luta", scores: [2, 3, 1] },
-                    { text: "Enfrentando diretamente e mostrando sua força", scores: [1, 2, 3] }
+                texto: "Como você prefere resolver conflitos?",
+                opcoes: [
+                    { texto: "Observando de longe e intervindo no momento certo", pontos: [3, 2, 1] },
+                    { texto: "Usando estratégia e palavras para evitar a luta", pontos: [2, 3, 1] },
+                    { texto: "Enfrentando diretamente e mostrando sua força", pontos: [1, 2, 3] }
                 ]
             },
             {
-                text: "Qual seria seu papel ideal em um grupo?",
-                options: [
-                    { text: "Explorador e observador, investigando o caminho", scores: [3, 1, 2] },
-                    { text: "Conselheiro e estrategista, planejando as ações", scores: [2, 3, 1] },
-                    { text: "Protetor e líder, guiando o grupo com segurança", scores: [1, 2, 3] }
+                texto: "Qual seria seu papel ideal em um grupo?",
+                opcoes: [
+                    { texto: "Explorador e observador, investigando o caminho", pontos: [3, 1, 2] },
+                    { texto: "Conselheiro e estrategista, planejando as ações", pontos: [2, 3, 1] },
+                    { texto: "Protetor e líder, guiando o grupo com segurança", pontos: [1, 2, 3] }
                 ]
             },
             {
-                text: "Como você reage a situações inesperadas?",
-                options: [
-                    { text: "Rapidamente me adapto e encontro rotas de escape", scores: [3, 2, 1] },
-                    { text: "Analiso todas as possibilidades antes de decidir", scores: [1, 3, 2] },
-                    { text: "Enfrento o problema de frente sem hesitar", scores: [2, 1, 3] }
+                texto: "Como você reage a situações inesperadas?",
+                opcoes: [
+                    { texto: "Rapidamente me adapto e encontro rotas de escape", pontos: [3, 2, 1] },
+                    { texto: "Analiso todas as possibilidades antes de decidir", pontos: [1, 3, 2] },
+                    { texto: "Enfrento o problema de frente sem hesitar", pontos: [2, 1, 3] }
                 ]
             },
             {
-                text: "Qual habilidade você valoriza mais?",
-                options: [
-                    { text: "Agilidade e precisão", scores: [3, 1, 2] },
-                    { text: "Inteligência e conhecimento", scores: [2, 3, 1] },
-                    { text: "Força e resistência", scores: [1, 2, 3] }
+                texto: "Qual habilidade você valoriza mais?",
+                opcoes: [
+                    { texto: "Agilidade e precisão", pontos: [3, 1, 2] },
+                    { texto: "Inteligência e conhecimento", pontos: [2, 3, 1] },
+                    { texto: "Força e resistência", pontos: [1, 2, 3] }
                 ]
             },
             {
-                text: "Em seus momentos livres, você prefere:",
-                options: [
-                    { text: "Praticar tiro ao alvo ou esportes que exigem precisão", scores: [3, 1, 2] },
-                    { text: "Ler livros, aprender magias ou estudar", scores: [1, 3, 2] },
-                    { text: "Treinar combate físico e aprimorar sua força", scores: [2, 1, 3] }
+                texto: "Em seus momentos livres, você prefere:",
+                opcoes: [
+                    { texto: "Praticar tiro ao alvo ou esportes que exigem precisão", pontos: [3, 1, 2] },
+                    { texto: "Ler livros, aprender magias ou estudar", pontos: [1, 3, 2] },
+                    { texto: "Treinar combate físico e aprimorar sua força", pontos: [2, 1, 3] }
                 ]
             },
             {
-                text: "Como você lida com seus inimigos?",
-                options: [
-                    { text: "Prefiro manter distância e observar suas fraquezas", scores: [3, 2, 1] },
-                    { text: "Uso astúcia e estratégia para confundi-los", scores: [2, 3, 1] },
-                    { text: "Enfrento-os cara a cara para mostrar minha força", scores: [1, 1, 3] }
+                texto: "Como você lida com seus inimigos?",
+                opcoes: [
+                    { texto: "Prefiro manter distância e observar suas fraquezas", pontos: [3, 2, 1] },
+                    { texto: "Uso astúcia e estratégia para confundi-los", pontos: [2, 3, 1] },
+                    { texto: "Enfrento-os cara a cara para mostrar minha força", pontos: [1, 1, 3] }
                 ]
             },
             {
-                text: "Qual ambiente você prefere?",
-                options: [
-                    { text: "Florestas e áreas amplas onde posso me mover livremente", scores: [3, 1, 2] },
-                    { text: "Bibliotecas e lugares místicos cheios de conhecimento", scores: [1, 3, 2] },
-                    { text: "Castelos e fortalezas que proporcionam proteção", scores: [2, 2, 3] }
+                texto: "Qual ambiente você prefere?",
+                opcoes: [
+                    { texto: "Florestas e áreas amplas onde posso me mover livremente", pontos: [3, 1, 2] },
+                    { texto: "Bibliotecas e lugares místicos cheios de conhecimento", pontos: [1, 3, 2] },
+                    { texto: "Castelos e fortalezas que proporcionam proteção", pontos: [2, 2, 3] }
                 ]
             },
             {
-                text: "Qual é o seu maior medo?",
-                options: [
-                    { text: "Ficar preso em um lugar sem saída", scores: [3, 2, 1] },
-                    { text: "Perder conhecimentos valiosos", scores: [1, 3, 2] },
-                    { text: "Não conseguir proteger quem ama", scores: [2, 1, 3] }
+                texto: "Qual é o seu maior medo?",
+                opcoes: [
+                    { texto: "Ficar preso em um lugar sem saída", pontos: [3, 2, 1] },
+                    { texto: "Perder conhecimentos valiosos", pontos: [1, 3, 2] },
+                    { texto: "Não conseguir proteger quem ama", pontos: [2, 1, 3] }
                 ]
             },
             {
-                text: "Como você abordaria uma missão importante?",
-                options: [
-                    { text: "Observaria e planejaria o melhor momento para agir", scores: [3, 2, 1] },
-                    { text: "Pesquisaria todas as informações possíveis antes", scores: [2, 3, 1] },
-                    { text: "Prepararia meu equipamento e partiria confiante", scores: [1, 1, 3] }
+                texto: "Como você abordaria uma missão importante?",
+                opcoes: [
+                    { texto: "Observaria e planejaria o melhor momento para agir", pontos: [3, 2, 1] },
+                    { texto: "Pesquisaria todas as informações possíveis antes", pontos: [2, 3, 1] },
+                    { texto: "Prepararia meu equipamento e partiria confiante", pontos: [1, 1, 3] }
                 ]
             },
             {
-                text: "O que mais importa para você em uma aventura?",
-                options: [
-                    { text: "Explorar novos territórios e descobrir segredos", scores: [3, 2, 1] },
-                    { text: "Adquirir novos conhecimentos e habilidades", scores: [1, 3, 2] },
-                    { text: "Superar desafios físicos e proteger aliados", scores: [2, 1, 3] }
+                texto: "O que mais importa para você em uma aventura?",
+                opcoes: [
+                    { texto: "Explorar novos territórios e descobrir segredos", pontos: [3, 2, 1] },
+                    { texto: "Adquirir novos conhecimentos e habilidades", pontos: [1, 3, 2] },
+                    { texto: "Superar desafios físicos e proteger aliados", pontos: [2, 1, 3] }
                 ]
             }
         ];
         
-        this.currentQuestionIndex = 0;
-        this.userAnswers = [];
+        this.indicePerguntaAtual = 0;
+        this.respostasUsuario = [];
         
-        this.elements = {
-            welcomeSection: document.getElementById('welcomeSection'),
-            quizSection: document.getElementById('quizSection'),
-            resultSection: document.getElementById('resultSection'),
-            questionContainer: document.getElementById('questionContainer'),
-            progressBar: document.getElementById('progressBar'),
-            startBtn: document.getElementById('startBtn'),
-            nextBtn: document.getElementById('nextBtn'),
-            restartBtn: document.getElementById('restartBtn')
+        this.elementos = {
+            secaoBoasVindas: document.getElementById('welcomeSection'),
+            secaoQuiz: document.getElementById('quizSection'),
+            secaoResultado: document.getElementById('resultSection'),
+            containerPergunta: document.getElementById('questionContainer'),
+            barraProgresso: document.getElementById('progressBar'),
+            botaoIniciar: document.getElementById('startBtn'),
+            botaoProximo: document.getElementById('nextBtn'),
+            botaoReiniciar: document.getElementById('restartBtn')
         };
         
-        this.elements.startBtn.addEventListener('click', () => this.startQuiz());
-        this.elements.nextBtn.addEventListener('click', () => this.nextQuestion());
-        this.elements.restartBtn.addEventListener('click', () => this.restartQuiz());
+        this.elementos.botaoIniciar.addEventListener('click', () => this.iniciarQuiz());
+        this.elementos.botaoProximo.addEventListener('click', () => this.proximaPergunta());
+        this.elementos.botaoReiniciar.addEventListener('click', () => this.reiniciarQuiz());
     }
     
-    startQuiz() {
-        this.elements.welcomeSection.classList.add('hidden');
-        this.elements.quizSection.classList.remove('hidden');
-        this.loadQuestion(0);
+    iniciarQuiz() {
+        this.elementos.secaoBoasVindas.classList.add('hidden');
+        this.elementos.secaoQuiz.classList.remove('hidden');
+        this.carregarPergunta(0);
     }
     
-    loadQuestion(index) {
-        if (index >= this.questions.length) {
-            this.showResult();
+    carregarPergunta(indice) {
+        if (indice >= this.perguntas.length) {
+            this.mostrarResultado();
             return;
         }
         
-        const question = this.questions[index];
+        const pergunta = this.perguntas[indice];
         
-        this.elements.questionContainer.innerHTML = `
+        this.elementos.containerPergunta.innerHTML = `
             <div class="question">
-                <h3>Pergunta ${index + 1}: ${question.text}</h3>
+                <h3>Pergunta ${indice + 1}: ${pergunta.texto}</h3>
                 <div class="options">
-                    ${question.options.map((option, i) => 
-                        `<div class="option" data-index="${i}">${option.text}</div>`
+                    ${pergunta.opcoes.map((opcao, i) => 
+                        `<div class="option" data-index="${i}">${opcao.texto}</div>`
                     ).join('')}
                 </div>
             </div>
         `;
         
-        const progress = ((index + 1) / this.questions.length) * 100;
-        this.elements.progressBar.style.width = `${progress}%`;
+        const progresso = ((indice + 1) / this.perguntas.length) * 100;
+        this.elementos.barraProgresso.style.width = `${progresso}%`;
         
-        const options = document.querySelectorAll('.option');
-        options.forEach(option => {
-            option.addEventListener('click', () => {
-                options.forEach(opt => opt.classList.remove('selected'));
-                option.classList.add('selected');
-                this.elements.nextBtn.disabled = false;
+        const opcoes = document.querySelectorAll('.option');
+        opcoes.forEach(opcao => {
+            opcao.addEventListener('click', () => {
+                opcoes.forEach(opt => opt.classList.remove('selected'));
+                opcao.classList.add('selected');
+                this.elementos.botaoProximo.disabled = false;
             });
         });
         
-        this.elements.nextBtn.disabled = true;
-        this.currentQuestionIndex = index;
+        this.elementos.botaoProximo.disabled = true;
+        this.indicePerguntaAtual = indice;
     }
     
-    nextQuestion() {
-        const selectedOption = document.querySelector('.option.selected');
-        if (!selectedOption) return;
+    proximaPergunta() {
+        const opcaoSelecionada = document.querySelector('.option.selected');
+        if (!opcaoSelecionada) return;
         
-        const optionIndex = parseInt(selectedOption.getAttribute('data-index'));
-        this.userAnswers[this.currentQuestionIndex] = optionIndex;
+        const indiceOpcao = parseInt(opcaoSelecionada.getAttribute('data-index'));
+        this.respostasUsuario[this.indicePerguntaAtual] = indiceOpcao;
         
-        this.loadQuestion(this.currentQuestionIndex + 1);
+        this.carregarPergunta(this.indicePerguntaAtual + 1);
     }
     
-    calculateResults() {
-        this.characters.forEach(char => char.score = 0);
+    calcularResultados() {
+        this.personagens.forEach(pers => pers.pontuacao = 0);
         
-        this.userAnswers.forEach((answer, qIndex) => {
-            const scores = this.questions[qIndex].options[answer].scores;
-            scores.forEach((score, charIndex) => {
-                this.characters[charIndex].score += score;
+        this.respostasUsuario.forEach((resposta, qIndice) => {
+            const pontos = this.perguntas[qIndice].opcoes[resposta].pontos;
+            pontos.forEach((ponto, indicePersonagem) => {
+                this.personagens[indicePersonagem].pontuacao += ponto;
             });
         });
         
-        return this.characters.reduce((prev, current) => 
-            (prev.score > current.score) ? prev : current
+        return this.personagens.reduce((anterior, atual) => 
+            (anterior.pontuacao > atual.pontuacao) ? anterior : atual
         );
     }
     
-    showResult() {
-        this.elements.quizSection.classList.add('hidden');
-        this.elements.resultSection.classList.remove('hidden');
+    mostrarResultado() {
+        this.elementos.secaoQuiz.classList.add('hidden');
+        this.elementos.secaoResultado.classList.remove('hidden');
         
-        const result = this.calculateResults();
+        const resultado = this.calcularResultados();
         
-        document.getElementById('characterName').textContent = result.name;
-        document.getElementById('characterIcon').textContent = result.icon;
-        document.getElementById('characterDescription').textContent = result.description;
-        document.getElementById('characterStrengths').textContent = result.strengths;
-        document.getElementById('characterAbilities').textContent = result.abilities;
-        document.getElementById('characterStyle').textContent = result.style;
-        document.getElementById('characterScore').textContent = result.score + " pontos";
+        document.getElementById('characterName').textContent = resultado.nome;
+        document.getElementById('characterIcon').textContent = resultado.icone;
+        document.getElementById('characterDescription').textContent = resultado.descricao;
+        document.getElementById('characterStrengths').textContent = resultado.forcas;
+        document.getElementById('characterAbilities').textContent = resultado.habilidades;
+        document.getElementById('characterStyle').textContent = resultado.estilo;
+        document.getElementById('characterScore').textContent = resultado.pontuacao + " pontos";
     }
     
-    restartQuiz() {
-        this.currentQuestionIndex = 0;
-        this.userAnswers = [];
-        this.elements.resultSection.classList.add('hidden');
-        this.elements.welcomeSection.classList.remove('hidden');
-        this.characters.forEach(char => char.score = 0);
+    reiniciarQuiz() {
+        this.indicePerguntaAtual = 0;
+        this.respostasUsuario = [];
+        this.elementos.secaoResultado.classList.add('hidden');
+        this.elementos.secaoBoasVindas.classList.remove('hidden');
+        this.personagens.forEach(pers => pers.pontuacao = 0);
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => new CharacterQuiz());
+document.addEventListener('DOMContentLoaded', () => new QuizPersonagem());
