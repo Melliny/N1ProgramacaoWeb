@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual Personagem Você Seria?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Qual Personagem Você Seria?</h1>
+        </header>
+        
+<!-- Página Inicial -->
+<section id="welcomeSection" class="section welcome">
+    <h2>Bem-vindo à Terra de Eldoria</h2>
+    
+    <p>Em um reino escondido entre névoas e lendas, três forças ancestrais mantêm o equilíbrio: a precisão silenciosa da Arqueira, o poder oculto do Mago, e a coragem inabalável do Guerreiro.</p>
+    
+    <p>Hoje, essa alma é você. As estrelas se alinham. O vento sussurra seu nome. O portal se abre... Está preparado para descobrir quem você realmente é?</p>
+    
+    <p>Em Eldoria, três classes de heróis se destacam na defesa do reino:</p>
+    <p><span class="character-icon">🏹</span> <strong>Arqueira</strong> - Mestra em ataques à distância, possui alta velocidade e habilidades de camuflagem.</p>
+    <p><span class="character-icon">✨</span> <strong>Mago</strong> - Domina feitiços de cura e dano, tem alcance médio e pode se tornar invisível.</p>
+    <p><span class="character-icon">🛡️</span> <strong>Guerreiro</strong> - Especialista em combate corpo a corpo, com força imensa e proteção com escudo.</p>
+    <p>Responda às perguntas e descubra qual destes heróis representa seu espírito de aventura!</p>
+    <button id="startBtn">Começar Aventura</button>
+</section>
+        
+        <!-- Questionário -->
+        <section id="quizSection" class="section hidden">
+            <div class="progress-bar">
+                <div id="progressBar" class="progress" style="width: 10%;"></div>
+            </div>
+            <div id="questionContainer"></div>
+            <button id="nextBtn">Próxima Pergunta</button>
+        </section>
+        
+        <!-- Resultado -->
+        <section id="resultSection" class="section result hidden">
+            <h2>Seu Personagem é:</h2>
+            <div id="characterName"></div>
+            <div id="characterIcon" class="result-character"></div>
+            <p id="characterDescription"></p>
+            
+            <div class="character-stats">
+                <div class="stat">
+                    <h4>Pontos Fortes</h4>
+                    <p id="characterStrengths"></p>
+                </div>
+                <div class="stat">
+                    <h4>Habilidades</h4>
+                    <p id="characterAbilities"></p>
+                </div>
+                <div class="stat">
+                    <h4>Estilo</h4>
+                    <p id="characterStyle"></p>
+                </div>
+            </div>
+            
+            <p>Sua pontuação: <span id="characterScore"></span></p>
+            <button id="restartBtn">Jogar Novamente</button>
+        </section>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
